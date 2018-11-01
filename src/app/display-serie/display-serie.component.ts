@@ -48,7 +48,7 @@ export class DisplaySerieComponent implements OnInit {
 
   /** Whenever one wants to initialize component properties */
   ngOnInit() {
-    // this.serie = ....
+    this.serie = series[1];
   }
 
 }
