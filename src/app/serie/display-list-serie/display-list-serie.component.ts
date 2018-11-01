@@ -57,7 +57,7 @@ export class DisplayListSerieComponent implements OnInit {
 
   /** Navigate to the details of the serie */
   showDetails() {
-    this._router.navigate( [ 'serie', this.serie.id ] );
+    this._router.navigate( [ 'serie', 'details', this.serie.id ] );
   }
 }
 
