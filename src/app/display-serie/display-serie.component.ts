@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 
 @Component({
@@ -12,6 +12,19 @@ export class DisplaySerieComponent {
   @Input()
   serie: any;
 
-  constructor() { }
+  /** Notify the random selection action */
+  @Output('on-random')
+  private _random$: EventEmitter<void>;
+
+  constructor() {
+    this._random$ = new EventEmitter<void>();
+  }
+
+  /** Notify the need of select randomly an other serie*/
+  random() {
+    this._random$.emit();
+  }
+
+
 
 }

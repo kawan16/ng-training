@@ -48,6 +48,12 @@ export class DisplayListSerieComponent implements OnInit {
   ngOnInit() {
      this.serie = series[0];
   }
+
+  /** Select randomly an other serie*/
+  random() {
+    const randomIndex = Math.floor( Math.random() * 3 );
+    this.serie = series[ randomIndex ];
+  }
 }
 
 

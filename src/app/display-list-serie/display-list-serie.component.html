@@ -1,6 +1,9 @@
 
 <h4> Liste des séries </h4>
-<app-display-serie [serie]="serie"></app-display-serie>
+<app-display-serie
+  [serie]="serie"
+  (on-random)="random()">
+</app-display-serie>
 
 
 
