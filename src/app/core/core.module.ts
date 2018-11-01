@@ -6,6 +6,9 @@ import { DisplayHeaderComponent } from './display-header/display-header.componen
   imports: [
     CommonModule
   ],
+  exports: [
+    DisplayHeaderComponent
+  ],
   declarations: [DisplayHeaderComponent]
 })
 export class CoreModule { }

@@ -3,19 +3,17 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
-import {DisplaySerieComponent} from './display-serie/display-serie.component';
-import {DisplayListSerieComponent} from './display-list-serie/display-list-serie.component';
+import {SerieModule} from './serie/serie.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DisplaySerieComponent,
-    DisplayListSerieComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    SerieModule
   ],
   providers: [],
   bootstrap: [AppComponent]
