@@ -4,11 +4,13 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
 import {DisplaySerieComponent} from './display-serie/display-serie.component';
+import {DisplayListSerieComponent} from './display-list-serie/display-list-serie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DisplaySerieComponent
+    DisplaySerieComponent,
+    DisplayListSerieComponent,
   ],
   imports: [
     BrowserModule,
