@@ -13,16 +13,16 @@ export class DisplaySerieComponent {
   serie: any;
 
   /** Notify the random selection action */
-  @Output('on-random')
-  private _random$: EventEmitter<void>;
+  @Output('on-detail')
+  private _detail$: EventEmitter<void>;
 
   constructor() {
-    this._random$ = new EventEmitter<void>();
+    this._detail$ = new EventEmitter<void>();
   }
 
-  /** Notify the need of select randomly an other serie*/
-  random() {
-    this._random$.emit();
+  /** Notify the need of showing the details of the currentserie*/
+  detail() {
+    this._detail$.emit();
   }
 
 

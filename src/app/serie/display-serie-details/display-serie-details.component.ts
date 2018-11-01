@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-
-/** Mocked serie list to use */
+import { Component, OnInit } from '@angular/core';
+/** Mocked series */
 const series = [
   {
+    id: 1,
     title: 'Game of Thrones',
     pictureUrl: 'assets/image/game_of_throne.jpg',
     creators: 'David Benioff, D. B. Weiss',
@@ -13,6 +13,7 @@ const series = [
     synopsis: 'Il y a très longtemps, à une époque oubliée, une force a détruit l\'équilibre des saisons. Dans un pays où l\'été peut durer plusieurs années et l\'hiver toute une vie, des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes. La confrérie de la Garde de Nuit, protégeant le Royaume de toute créature pouvant provenir d\'au-delà du Mur protecteur, n\'a plus les ressources nécessaires pour assurer la sécurité de tous. Après un été de dix années, un hiver rigoureux s\'abat sur le Royaume avec la promesse d\'un avenir des plus sombres. Pendant ce temps, complots et rivalités se jouent sur le continent pour s\'emparer du Trône de Fer, le symbole du pouvoir absolu.'
   },
   {
+    id: 2,
     title: 'The Walking Dead',
     pictureUrl: 'assets/image/the_walking_dead.jpg',
     creators: 'Franck Darabond',
@@ -23,6 +24,7 @@ const series = [
     synopsis: 'Après une apocalypse ayant transformé la quasi-totalité de la population en zombies, un groupe d\'hommes et de femmes mené par l\'officier Rick Grimes tente de survivre... Ensemble, ils vont devoir tant bien que mal faire face à ce nouveau monde devenu méconnaissable, à travers leur périple dans le Sud profond des États-Unis.'
   },
   {
+    id: 3,
     title: 'Breaking Bad',
     pictureUrl: 'assets/image/breaking_bad.jpg',
     creators: 'Vince Gilligan',
@@ -34,26 +36,24 @@ const series = [
   }
 ];
 
+/**
+ * This component displays the details of a serie given an identifier in url
+ */
 @Component({
-  selector: 'app-display-list-serie',
-  templateUrl: './display-list-serie.component.html',
-  styleUrls: ['./display-list-serie.component.css']
+  selector: 'app-display-serie-details',
+  templateUrl: './display-serie-details.component.html',
+  styleUrls: ['./display-serie-details.component.css']
 })
-export class DisplayListSerieComponent implements OnInit {
+export class DisplaySerieDetailsComponent implements OnInit {
 
-  /** A serie to display */
+  /** The serie to display */
   serie: any;
+
+  constructor() { }
 
   /** Whenever one needs to initialize component properties */
   ngOnInit() {
-     this.serie = series[0];
+    // this.serie = ...;
   }
 
-  /** Select randomly an other serie*/
-  showDetails() {
-    const randomIndex = Math.floor( Math.random() * 3 );
-    this.serie = series[ randomIndex ];
-  }
 }
-
-
