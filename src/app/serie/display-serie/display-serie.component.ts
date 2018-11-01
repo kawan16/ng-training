@@ -12,17 +12,17 @@ export class DisplaySerieComponent {
   @Input()
   serie: any;
 
-  /** Notify the random selection action */
-  @Output('on-random')
-  private _random$: EventEmitter<void>;
+  /** Showing details event emitter */
+  @Output('detail')
+  private _detail$: EventEmitter<void>;
 
   constructor() {
-    this._random$ = new EventEmitter<void>();
+    this._detail$ = new EventEmitter<void>();
   }
 
-  /** Notify the need of select randomly an other serie*/
-  random() {
-    this._random$.emit();
+  /** Notify the action of showing details */
+  detail() {
+    this._detail$.emit();
   }
 
 

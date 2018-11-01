@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 /** Mocked series */
 const series = [
   {
-    id: 1,
+    id: '1',
     title: 'Game of Thrones',
     pictureUrl: 'assets/image/game_of_throne.jpg',
     creators: 'David Benioff, D. B. Weiss',
@@ -13,7 +14,7 @@ const series = [
     synopsis: 'Il y a très longtemps, à une époque oubliée, une force a détruit l\'équilibre des saisons. Dans un pays où l\'été peut durer plusieurs années et l\'hiver toute une vie, des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes. La confrérie de la Garde de Nuit, protégeant le Royaume de toute créature pouvant provenir d\'au-delà du Mur protecteur, n\'a plus les ressources nécessaires pour assurer la sécurité de tous. Après un été de dix années, un hiver rigoureux s\'abat sur le Royaume avec la promesse d\'un avenir des plus sombres. Pendant ce temps, complots et rivalités se jouent sur le continent pour s\'emparer du Trône de Fer, le symbole du pouvoir absolu.'
   },
   {
-    id: 2,
+    id: '2',
     title: 'The Walking Dead',
     pictureUrl: 'assets/image/the_walking_dead.jpg',
     creators: 'Franck Darabond',
@@ -24,7 +25,7 @@ const series = [
     synopsis: 'Après une apocalypse ayant transformé la quasi-totalité de la population en zombies, un groupe d\'hommes et de femmes mené par l\'officier Rick Grimes tente de survivre... Ensemble, ils vont devoir tant bien que mal faire face à ce nouveau monde devenu méconnaissable, à travers leur périple dans le Sud profond des États-Unis.'
   },
   {
-    id: 3,
+    id: '3',
     title: 'Breaking Bad',
     pictureUrl: 'assets/image/breaking_bad.jpg',
     creators: 'Vince Gilligan',
@@ -49,11 +50,18 @@ export class DisplaySerieDetailsComponent implements OnInit {
   /** The serie to display */
   serie: any;
 
-  constructor() { }
+  constructor( private _route: ActivatedRoute ) { }
 
   /** Whenever one needs to initialize component properties */
   ngOnInit() {
-    // this.serie = ...;
+    this.assignSerieFromPath();
   }
 
+  /** Assign the serie to display with the id included into the path */
+  private assignSerieFromPath() {
+    this._route.paramMap.subscribe( params => {
+      const serieId = params.get( 'id' );
+      this.serie = series.find( serie => serie.id == serieId );
+    });
+  }
 }
