@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {DisplayListSerieComponent} from './display-list-serie/display-list-serie.component';
 import {DisplaySerieComponent} from './display-serie/display-serie.component';
 import { DisplayListSerieToWatchComponent } from './display-list-serie-to-watch/display-list-serie-to-watch.component';
+import { DisplaySerieDetailsComponent } from './display-serie-details/display-serie-details.component';
 
 @NgModule({
   imports: [
@@ -10,12 +11,14 @@ import { DisplayListSerieToWatchComponent } from './display-list-serie-to-watch/
   ],
   exports: [
     DisplayListSerieComponent,
-    DisplayListSerieToWatchComponent
+    DisplayListSerieToWatchComponent,
+    DisplaySerieDetailsComponent
   ],
   declarations: [
     DisplayListSerieComponent,
     DisplaySerieComponent,
-    DisplayListSerieToWatchComponent
+    DisplayListSerieToWatchComponent,
+    DisplaySerieDetailsComponent
   ]
 })
 export class SerieModule { }
