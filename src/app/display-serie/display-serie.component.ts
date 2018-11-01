@@ -51,4 +51,9 @@ export class DisplaySerieComponent implements OnInit {
     this.serie = series[1];
   }
 
+  /** Randomly change the current serie to diplay */
+  random() {
+    const randomIndex = Math.floor(Math.random() * Math.floor( series.length ) );
+    this.serie = series[ randomIndex ];
+  }
 }
