@@ -18,7 +18,7 @@ export class AddSerieForm extends FormGroup {
         Validators.min(1970),
         Validators.max( (new Date()).getFullYear() ) ] ),
       seasons: new FormControl( 1, [ Validators.required, Validators.min(1 ) ] ),
-      pictureUrl: new FormControl( '', Validators.required ),
+      pictureUrl: new FormControl( '', [ Validators.required, hasFileExtensionValidator( 'jpg' ) ] ),
       synopsis: new FormControl( '', Validators.required ),
     });
   }
@@ -34,4 +34,15 @@ export class AddSerieForm extends FormGroup {
     const releaseYearControl = this.get( 'releaseYear' );
     return releaseYearControl.hasError( 'max' ) && releaseYearControl.dirty;
   }
+}
+
+/**
+ * Validator that checks if the control file url value ends with given extension
+ */
+const hasFileExtensionValidator = ( extension: string ) => {
+  return ( control: FormControl ) => {
+    const value: string = control.value;
+    const hasFileExtension = value && value.endsWith( '.' + extension );
+    return hasFileExtension ? null : { hasFileExtension: true };
+  };
 }
