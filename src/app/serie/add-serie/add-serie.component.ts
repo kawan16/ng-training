@@ -14,7 +14,7 @@ declare var M;
 export class AddSerieComponent implements OnInit {
 
   /** Form to define the serie to add */
-  form: FormGroup;
+  form: AddSerieForm;
 
   /**
    * Default constructor

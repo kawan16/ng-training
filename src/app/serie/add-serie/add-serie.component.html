@@ -36,6 +36,12 @@
                  class="active">
             Release Year
           </label>
+          <span *ngIf="form.hasMinReleaseError">
+            The release year must be more than 1970
+          </span>
+          <span *ngIf="form.hasMaxReleaseError">
+            The release year must be less than the current year
+          </span>
         </div>
       </div>
 

@@ -17,9 +17,21 @@ export class AddSerieForm extends FormGroup {
         Validators.required,
         Validators.min(1970),
         Validators.max( (new Date()).getFullYear() ) ] ),
-      seasons: new FormControl( 1, [ , Validators.required, Validators.min(1 ) ] ),
+      seasons: new FormControl( 1, [ Validators.required, Validators.min(1 ) ] ),
       pictureUrl: new FormControl( '', Validators.required ),
       synopsis: new FormControl( '', Validators.required ),
     });
+  }
+
+  /** Returns true if the release year is less thant 1970 */
+  get hasMinReleaseError() {
+    const releaseYearControl = this.get( 'releaseYear' );
+    return releaseYearControl.hasError( 'min' ) && releaseYearControl.dirty;
+  }
+
+  /** Returns true if the release year is less thant 1970 */
+  get hasMaxReleaseError() {
+    const releaseYearControl = this.get( 'releaseYear' );
+    return releaseYearControl.hasError( 'max' ) && releaseYearControl.dirty;
   }
 }
