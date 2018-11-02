@@ -72,14 +72,15 @@
   </div>
 
   <div class="modal-footer">
-    <a class=" modal-action waves-effect waves-green btn-flat"
+    <button class=" modal-action waves-effect waves-green btn-flat"
       (click)="cancel()">
       Cancel
-    </a>
-    <a class=" modal-action waves-effect waves-green btn-flat"
+    </button>
+    <button class=" modal-action waves-effect waves-green btn-flat"
+       [disabled]="form.invalid"
        (click)="add()">
       Add
-    </a>
+    </button>
   </div>
 </div>
 
