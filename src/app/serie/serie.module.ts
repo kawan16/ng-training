@@ -6,23 +6,24 @@ import {DisplayListSerieToWatchComponent} from './display-list-serie-to-watch/di
 import {DisplaySerieDetailsComponent} from './display-serie-details/display-serie-details.component';
 import {RouterModule} from '@angular/router';
 import {SerieRoutingModule} from './serie-routing.module';
+import { AddSerieComponent } from './add-serie/add-serie.component';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    SerieRoutingModule
+    SerieRoutingModule,
+    SharedModule
   ],
   exports: [
     RouterModule,
-    DisplayListSerieComponent,
-    DisplayListSerieToWatchComponent,
-    DisplaySerieDetailsComponent
   ],
   declarations: [
     DisplayListSerieComponent,
     DisplaySerieComponent,
     DisplayListSerieToWatchComponent,
-    DisplaySerieDetailsComponent
+    DisplaySerieDetailsComponent,
+    AddSerieComponent
   ]
 })
 export class SerieModule { }
