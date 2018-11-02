@@ -1,10 +1,25 @@
 'use strict';
 
-const Hapi = require('hapi');
 
+const data = require( './data' );
+const Hapi = require('hapi');
 const server = Hapi.server({
   port: 3000,
-  host: 'localhost'
+  host: 'localhost',
+  routes: {
+    cors: {
+      origin: ['*'],
+      additionalHeaders: ['cache-control', 'x-requested-with']
+    }
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/series',
+  handler: (request, h) => {
+    return data;
+  }
 });
 
 const init = async () => {
@@ -20,3 +35,7 @@ process.on('unhandledRejection', (err) => {
 });
 
 init();
+
+
+
+
