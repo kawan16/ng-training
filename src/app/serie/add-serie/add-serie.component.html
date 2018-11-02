@@ -4,54 +4,71 @@
   <div class="modal-content">
     <h4>New Serie</h4>
 
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="title"
-               type="text">
-        <label for="title">Title</label>
+    <form [formGroup]="form">
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="title"
+                 type="text"
+                 formControlName="title">
+          <label for="title">Title</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="creators"
+                 type="text"
+                 formControlName="creators">
+          <label for="creators">Creators</label>
+        </div>
       </div>
-      <div class="input-field col s6">
-        <input id="creators"
-               type="text">
-        <label for="creators">Creators</label>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="genre"
+                 type="text"
+                 formControlName="genre">
+          <label for="genre">Genre</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="releaseYear"
+                 type="number"
+                 formControlName="releaseYear">
+          <label for="releaseYear"
+                 class="active">
+            Release Year
+          </label>
+        </div>
       </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="seasons"
+                 type="text"
+                 formControlName="seasons">
+          <label for="seasons"
+                 class="active">
+            Seasons
+          </label>
+        </div>
+        <div class="input-field col s6">
+          <input id="pictureUrl"
+                 type="url"
+                 formControlName="pictureUrl">
+          <label for="pictureUrl">Picture Url</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="synopsis"
+                    class="materialize-textarea"
+                    formControlName="synopsis">
+          </textarea>
+          <label for="synopsis">Synopsis</label>
+      </div>
+
+
     </div>
-
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="genre"
-               type="text">
-        <label for="genre">Genre</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="releaseYear"
-               type="number">
-        <label for="releaseYear">Release Year</label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="seasons"
-               type="text">
-        <label for="seasons">Seasons</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="pictureUrl"
-               type="url">
-        <label for="pictureUrl">Picture Url</label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea id="synopsis"
-                  class="materialize-textarea"></textarea>
-        <label for="synopsis">Synopsis</label>
-    </div>
-
-
-  </div>
+    </form>
   </div>
 
   <div class="modal-footer">

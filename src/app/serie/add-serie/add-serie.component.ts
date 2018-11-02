@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import 'materialize-css';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AddSerieForm} from './add-serie.form';
 
 declare var M;
 
@@ -28,6 +29,7 @@ export class AddSerieComponent implements OnInit {
   /** Initialize the component */
   ngOnInit() {
     this.initializeModal();
+    this.initializeForm();
     this.openModal();
   }
 
@@ -44,13 +46,18 @@ export class AddSerieComponent implements OnInit {
   /** Add the serie and go back to the parent state */
   add() {
     // Something to do
-    console.log( 'The current form value is ' /* Display the current form value */ );
+    console.log( 'The current form value is ', this.form.value );
     this.goToParent();
   }
 
   /** Initialize the add modal*/
   private initializeModal() {
     M.Modal.init( this.modalElement );
+  }
+
+  /** Initialize the add form */
+  private initializeForm() {
+    this.form = new AddSerieForm();
   }
 
   /** Open the add modal*/
@@ -62,4 +69,6 @@ export class AddSerieComponent implements OnInit {
   private goToParent() {
     this._router.navigate( [ '../'], {relativeTo: this._route});
   }
+
+
 }
