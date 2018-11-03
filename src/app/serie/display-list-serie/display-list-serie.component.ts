@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Serie} from '../shared/model/serie.model';
 import {ApiService} from '../shared/service/api.service';
-import {HttpClient} from '@angular/common/http';
 import {StoreService} from '../shared/service/store.service';
 import {skip} from 'rxjs/operators';
 
