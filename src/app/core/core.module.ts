@@ -4,11 +4,13 @@ import { DisplayHeaderComponent } from './display-header/display-header.componen
 import { SayWelcomeComponent } from './say-welcome/say-welcome.component';
 import { WarnUnknownPageComponent } from './warn-unknown-page/warn-unknown-page.component';
 import {RouterModule} from '@angular/router';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [
     DisplayHeaderComponent,

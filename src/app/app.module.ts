@@ -3,7 +3,10 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
-import {SharedModule} from './shared/shared.module';
+import {environment} from '../environments/environment';
+
+/** Use the role of token */
+export const CONFIGURATION = {};
 
 @NgModule({
   declarations: [
@@ -12,10 +15,11 @@ import {SharedModule} from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
-    SharedModule
+    CoreModule
   ],
-  providers: [],
+  providers: [
+    { provide: CONFIGURATION, useValue: environment.configuration }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

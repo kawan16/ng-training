@@ -6,9 +6,9 @@ import {DisplayListSerieToWatchComponent} from './display-list-serie-to-watch/di
 import {DisplaySerieDetailsComponent} from './display-serie-details/display-serie-details.component';
 import {RouterModule} from '@angular/router';
 import {SerieRoutingModule} from './serie-routing.module';
-import { AddSerieComponent } from './add-serie/add-serie.component';
+import {AddSerieComponent} from './add-serie/add-serie.component';
 import {SharedModule} from '../shared/shared.module';
-import {HttpClient} from '@angular/common/http';
+
 
 @NgModule({
   imports: [
