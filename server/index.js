@@ -1,7 +1,7 @@
 'use strict';
 
 
-const data = require( './data' );
+let data = require( './data' );
 const Hapi = require('hapi');
 const server = Hapi.server({
   port: 3000,
@@ -20,6 +20,16 @@ server.route({
   path: '/series',
   handler: (request, h) => {
     return data;
+  }
+});
+
+server.route({
+  method: 'POST',
+  path: '/series',
+  handler: (request, h) => {
+    const newSerie = { ...request.payload, id: data.length + 1 };
+    data.push( newSerie );
+    return newSerie;
   }
 });
 
