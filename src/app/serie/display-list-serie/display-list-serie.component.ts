@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import {Serie} from '../shared/model/serie.model';
 import {ApiService} from '../shared/service/api.service';
 import {HttpClient} from '@angular/common/http';
+import {StoreService} from '../shared/service/store.service';
+import {skip} from 'rxjs/operators';
 
 @Component({
   selector: 'app-display-list-serie',
@@ -16,12 +18,14 @@ export class DisplayListSerieComponent implements OnInit {
 
   constructor(
     private _api: ApiService,
+    private _store: StoreService,
     private _router: Router
   ) {}
 
   /** Whenever one needs to initialize component properties */
   ngOnInit() {
     this.populate();
+    this.handleAddedSerie();
   }
 
   /** Navigate to the details of the serie */
@@ -33,6 +37,13 @@ export class DisplayListSerieComponent implements OnInit {
   private populate() {
     this.series = [];
     this._api.findAll().subscribe( series => this.series = series );
+  }
+
+  /** Refresh the series list whenever a new serie has been added*/
+  private handleAddedSerie() {
+    this._store.addedSerie$.pipe( skip( 1 ) ).subscribe( newSerie =>  {
+      this.series.push( newSerie );
+    });
   }
 }
 

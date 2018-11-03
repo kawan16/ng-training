@@ -4,6 +4,7 @@ import 'materialize-css';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AddSerieForm} from './add-serie.form';
 import {ApiService} from '../shared/service/api.service';
+import {StoreService} from '../shared/service/store.service';
 
 declare var M;
 
@@ -24,6 +25,7 @@ export class AddSerieComponent implements OnInit {
    */
   constructor(
     private _api: ApiService,
+    private _store: StoreService,
     private _element: ElementRef,
     private _route: ActivatedRoute,
     private _router: Router) { }
@@ -47,7 +49,10 @@ export class AddSerieComponent implements OnInit {
 
   /** Add the serie and go back to the parent state */
   add() {
-    this._api.create( this.form.value ).subscribe( () => this.goToParent() );
+    this._api.create( this.form.value ).subscribe( addedSerie => {
+      this._store.addedSerie = addedSerie;
+      this.goToParent()
+    });
   }
 
   /** Initialize the add modal*/
@@ -67,6 +72,7 @@ export class AddSerieComponent implements OnInit {
 
   /** Go back to the component parent path */
   private goToParent() {
+    M.Modal.getInstance( this.modalElement ).close();
     this._router.navigate( [ '../'], {relativeTo: this._route});
   }
 
