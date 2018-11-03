@@ -3,6 +3,7 @@ import {FormGroup} from '@angular/forms';
 import 'materialize-css';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AddSerieForm} from './add-serie.form';
+import {ApiService} from '../shared/service/api.service';
 
 declare var M;
 
@@ -22,6 +23,7 @@ export class AddSerieComponent implements OnInit {
    * @param _router The Angular router
    */
   constructor(
+    private _api: ApiService,
     private _element: ElementRef,
     private _route: ActivatedRoute,
     private _router: Router) { }
@@ -45,9 +47,7 @@ export class AddSerieComponent implements OnInit {
 
   /** Add the serie and go back to the parent state */
   add() {
-    // Something to do
-    console.log( 'The current form value is ', this.form.value );
-    this.goToParent();
+    this._api.create( this.form.value ).subscribe( () => this.goToParent() );
   }
 
   /** Initialize the add modal*/

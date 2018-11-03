@@ -18,6 +18,11 @@ export class ApiService {
    */
   constructor( private _http: HttpClient ) { }
 
+  /** Create a given serie */
+  create( serie: Serie ) {
+    return this._http.post( 'http://localhost:3000/series', serie );
+  }
+
   /** Returns the full list of series */
   findAll(): Observable<Serie[]> {
     return this._http.get<Serie[]>( 'http://localhost:3000/series' );
