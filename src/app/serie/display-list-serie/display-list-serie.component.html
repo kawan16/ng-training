@@ -1,9 +1,13 @@
 
-<app-display-serie
-  [serie]="serie"
-  (detail)="showDetails()">
-</app-display-serie>
-
+<div class="row">
+  <div class="col m4"
+       *ngFor="let serie of series">
+    <app-display-serie
+      [serie]="serie"
+      (detail)="showDetails( serie )">
+    </app-display-serie>
+  </div>
+</div>
 <div class="fixed-action-btn">
   <a [routerLink]="[ 'add' ]"
      class="btn-floating btn-large red">

@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {Serie} from '../shared/model/serie.model';
+import {ApiService} from '../shared/service/api.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-display-list-serie',
@@ -8,19 +11,28 @@ import {Router} from '@angular/router';
 })
 export class DisplayListSerieComponent implements OnInit {
 
-  /** A serie to display */
-  serie: any;
+  /** A list of series to display */
+  series: Serie[];
 
-  constructor( private _router: Router ) {}
+  constructor(
+    private _api: ApiService,
+    private _router: Router
+  ) {}
 
   /** Whenever one needs to initialize component properties */
   ngOnInit() {
-     this.serie = series[0];
+    this.populate();
   }
 
   /** Navigate to the details of the serie */
-  showDetails() {
-    this._router.navigate( [ 'serie', 'details', this.serie.id ] );
+  showDetails( serie: Serie ) {
+    this._router.navigate( [ 'serie', 'details', serie.id ] );
+  }
+
+  /** Populates the list of series */
+  private populate() {
+    this.series = [];
+    this._api.findAll().subscribe( series => this.series = series );
   }
 }
 

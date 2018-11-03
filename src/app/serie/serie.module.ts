@@ -8,15 +8,16 @@ import {RouterModule} from '@angular/router';
 import {SerieRoutingModule} from './serie-routing.module';
 import { AddSerieComponent } from './add-serie/add-serie.component';
 import {SharedModule} from '../shared/shared.module';
+import {HttpClient} from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     SerieRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
-    RouterModule,
+    RouterModule
   ],
   declarations: [
     DisplayListSerieComponent,

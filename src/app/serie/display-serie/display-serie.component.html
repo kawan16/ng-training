@@ -1,82 +1,80 @@
-<div class="row">
-  <div class="col m3">
-    <div class="card">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" [src]="serie.pictureUrl">
-      </div>
-      <div class="card-content">
+
+<div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" [src]="serie.pictureUrl">
+  </div>
+  <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">
           {{ serie.title }}
           <i class="material-icons right">more_vert</i>
         </span>
-        <p class="grey-text text-darken-1"> {{ serie.releaseYear }} - {{ serie.genre }} </p>
-      </div>
-      <div class="card-action">
-        <a (click)="detail()" class="waves-effect waves-teal btn-flat">Details</a>
-      </div>
-      <div class="card-reveal">
+    <p class="grey-text text-darken-1"> {{ serie.releaseYear }} - {{ serie.genre }} </p>
+  </div>
+  <div class="card-action">
+    <a (click)="detail()" class="waves-effect waves-teal btn-flat">Details</a>
+  </div>
+  <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">
           {{ serie.title }}
           <i class="material-icons right">close</i>
         </span>
 
-        <div class="row"></div>
+    <div class="row"></div>
 
-        <div class="row">
-          <div class="col s3">
-            <span> Créateur(s)</span>
-          </div>
-          <div class="col s9">
-            <span class="grey-text text-darken-1"> {{ serie.creators }}</span>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col s3">
+        <span> Créateur(s)</span>
+      </div>
+      <div class="col s9">
+        <span class="grey-text text-darken-1"> {{ serie.creators }}</span>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col s3">
-            <span> Genre</span>
-          </div>
-          <div class="col s9">
-            <span class="grey-text text-darken-1"> {{ serie.genre }}</span>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col s3">
+        <span> Genre</span>
+      </div>
+      <div class="col s9">
+        <span class="grey-text text-darken-1"> {{ serie.genre }}</span>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col s3">
-            <span> Année</span>
-          </div>
-          <div class="col s9">
-            <span class="grey-text text-darken-1"> {{serie.releaseYear}}</span>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col s3">
+        <span> Année</span>
+      </div>
+      <div class="col s9">
+        <span class="grey-text text-darken-1"> {{serie.releaseYear}}</span>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col s3">
-            <span> Saisons</span>
-          </div>
-          <div class="col s9">
-            <span class="grey-text text-darken-1"> {{serie.seasons}}</span>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col s3">
+        <span> Saisons</span>
+      </div>
+      <div class="col s9">
+        <span class="grey-text text-darken-1"> {{serie.seasons}}</span>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col s3">
-            <span> Site web</span>
-          </div>
-          <div class="col s9">
-            <a [href]="serie.websiteUrl"> {{ serie.websiteUrl }}</a>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col s3">
+        <span> Site web</span>
+      </div>
+      <div class="col s9">
+        <a [href]="serie.websiteUrl"> {{ serie.websiteUrl }}</a>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col s12">
-            <span>Synopsis</span>
-            <p class="synopsis">
-              {{ serie.synopsis }}
-            </p>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col s12">
+        <span>Synopsis</span>
+        <p class="synopsis">
+          {{ serie.synopsis }}
+        </p>
       </div>
     </div>
   </div>
 </div>
+
 
