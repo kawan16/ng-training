@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { WithoutHttpPipe } from './pipe/without-http.pipe';
 
 
 @NgModule({
@@ -12,8 +13,9 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   exports: [
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    WithoutHttpPipe
   ],
-  declarations: [],
+  declarations: [WithoutHttpPipe],
 })
 export class SharedModule { }

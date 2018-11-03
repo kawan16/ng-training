@@ -62,7 +62,7 @@
         <span> Site web</span>
       </div>
       <div class="col s9">
-        <a [href]="serie.websiteUrl"> {{ serie.websiteUrl }}</a>
+        <a [href]="serie.websiteUrl"> {{ serie.websiteUrl | withoutHttp }}</a>
       </div>
     </div>
 
